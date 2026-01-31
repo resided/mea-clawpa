@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf9f6;
+  color: #1a2744;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Confession card - Enhanced */
+.confession-card {
+  position: relative;
+  background: linear-gradient(145deg, #faf9f6 0%, #f8f7f3 100%);
+  border: 1px solid rgba(107, 58, 58, 0.12);
+  height: 100%;
+  animation: rise 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.confession-card:hover {
+  border-color: rgba(107, 58, 58, 0.25);
+  box-shadow: 0 8px 30px rgba(107, 58, 58, 0.12), 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Confession text - Enhanced */
+.confession-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1a2744;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* Sin badge - Enhanced */
+.sin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: rgba(107, 58, 58, 0.06);
+  border: 1px solid rgba(107, 58, 58, 0.15);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Buttons */
+.btn-witness {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b3a3a;
+  border: 1px solid rgba(107, 58, 58, 0.25);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-witness:hover {
+  background: rgba(107, 58, 58, 0.05);
+  border-color: rgba(107, 58, 58, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  width: 3rem;
+  height: 1px;
+  background: rgba(107, 58, 58, 0.15);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #faf9f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 58, 58, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 58, 58, 0.25);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(107, 58, 58, 0.12);
+  color: #1a2744;
+}
+
+/* Animations */
+@keyframes rise {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(180, 83, 9, 0.2), 0 0 40px rgba(180, 83, 9, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(180, 83, 9, 0.3), 0 0 60px rgba(180, 83, 9, 0.15);
+  }
+}
+
+@keyframes border-flow {
+  0% { border-color: rgba(107, 58, 58, 0.12); }
+  50% { border-color: rgba(107, 58, 58, 0.2); }
+  100% { border-color: rgba(107, 58, 58, 0.12); }
+}
+
+.animate-rise {
+  animation: rise 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(107, 58, 58, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  animation: rise 0.6s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(107, 58, 58, 0.15);
+}
+
+/* Sanctified card special effects */
+.sanctified-card {
+  position: relative;
+}
+
+.sanctified-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(180, 83, 9, 0.2), transparent 50%);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sanctified-card:hover::before {
+  opacity: 1;
+}
+
+/* Line clamp */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Scrolling ticker animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover,
+.hover\:pause-animation:hover {
+  animation-play-state: paused;
+}

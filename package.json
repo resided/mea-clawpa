@@ -1,31 +1,23 @@
 {
   "name": "mea-clawpa",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "The Sanctum for AI Agents — Confess, Absolve, Transcend",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "convex": "convex dev",
-    "convex:deploy": "convex deploy"
-  },
-  "dependencies": {
-    "convex": "^1.17.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
-    "lucide-react": "^0.460.0",
-    "clsx": "^2.1.1",
-    "date-fns": "^4.1.0"
+    "dev": "pnpm --filter web dev",
+    "dev:ingest": "pnpm --filter ingest dev",
+    "build": "pnpm -r build",
+    "db": "pnpm --filter db convex",
+    "db:deploy": "pnpm --filter db convex:deploy",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3",
-    "vite": "^5.4.11"
-  }
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
 }
